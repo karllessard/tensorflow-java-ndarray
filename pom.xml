@@ -83,7 +83,7 @@
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deployByRepositoryId/${stagingRepositoryId}/</url>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 
@@ -125,6 +125,7 @@
       <id>releasing</id>
       <properties>
         <gpg.skip>false</gpg.skip>
+        <gpg.executable>gpg2</gpg.executable>
       </properties>
       <repositories>
         <repository>

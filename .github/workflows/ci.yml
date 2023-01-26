@@ -34,4 +34,5 @@ jobs:
         if: github.event_name == 'push' && startsWith(github.ref, 'r')
         run: |
           echo "<settings><servers><server><id>ossrh</id><username>${{ secrets.CI_DEPLOY_USERNAME }}</username><password>${{ secrets.CI_DEPLOY_PASSWORD }}</password></server><server><id>github</id><username>${{ secrets.CI_COMMIT_USERNAME }}</username><password>${{ secrets.CI_COMMIT_PASSWORD }}</password></server></servers></settings>" > $HOME/.m2/settings.xml
-          mvn release:prepare -B -U -e -P releasing && mvn release:perform -B -U -e -Dmaven.test.skip=true -P releasing
+          mvn -P releasing release:prepare -B -U -e -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
+          mvn -P releasing release:perform -B -U -e -Dmaven.test.skip=true
