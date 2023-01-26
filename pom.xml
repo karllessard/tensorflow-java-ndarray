@@ -41,6 +41,7 @@
     <versions-plugin.version>2.7</versions-plugin.version>
     <errorprone.version>2.10.0</errorprone.version>
     <gpg.skip>true</gpg.skip>
+    <project.scm.id>github</project.scm.id>
   </properties>
 
   <repositories>
